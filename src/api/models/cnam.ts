@@ -3,9 +3,8 @@ import mongoose from 'mongoose';
 export interface CnamInput {
     Name: string;
     Price: number;
-    refundable: string;
+    refundable: boolean;
     class: string;
-
 }
 
 
@@ -23,7 +22,7 @@ export const CnamSchema = new mongoose.Schema(
             type: Number,
         },
         refundable: {
-            type: String,
+            type: Boolean,
         },
         class: {
             type: String,

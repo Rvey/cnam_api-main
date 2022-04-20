@@ -22,6 +22,9 @@ export const patientSchema = new mongoose.Schema(
         phone: {
             type: Number,
         },
+        fileRef:{
+            type: Number,
+        },
         address: {
             type: String,
         },
