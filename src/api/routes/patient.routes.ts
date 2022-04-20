@@ -1,5 +1,6 @@
 import express from 'express';
 import {
+    checkFileAndSendMain,
     createPatient,
     getAllPatient,
     getPatientById,
@@ -13,6 +14,7 @@ Prouter.get('/all', getAllPatient);
 Prouter.post('/create', createPatient);
 // router.delete('/delete/:id', patientFileController.deletePatient);
 Prouter.get('/one/:id', getPatientById);
+Prouter.post('/checkFile/:id', checkFileAndSendMain)
 
 
 export default Prouter;

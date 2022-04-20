@@ -32,9 +32,8 @@ export const patientSchema = new mongoose.Schema(
             type: String,
         },
         medicine:[{
-            ref: {
-                type: String,
-            }
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Cnam',
         }],
 
     },
