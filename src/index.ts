@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import 'dotenv/config';
 import mongoose from "mongoose";
 import Prouter from "./api/routes/patient.routes";
+import Arouter from "./api/routes/agent.routes";
 
 require('dotenv').config();
 
@@ -25,6 +26,7 @@ mongoose.connection.on('error', (err) => {
 // ** routes //
 app.use('/cnam', router);
 app.use('/patient', Prouter);
+app.use('/agent', Arouter);
 
 
 app.listen(4000, () => {

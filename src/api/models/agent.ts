@@ -8,6 +8,9 @@ export interface Agent {
 
 export const AgentSchema = new mongoose.Schema(
     {
+        fullName: {
+          type: String,
+        },
         email: {
             type: String,
         },
