@@ -22,6 +22,7 @@ interface patientType {
 }
 
 
+
 export const getAllPatient = async (req: Request, res: Response) => {
     try {
         const patient = await Patient.find();
