@@ -22,7 +22,6 @@ interface patientType {
 }
 
 
-
 export const getAllPatient = async (req: Request, res: Response) => {
     try {
         const patient = await Patient.find();
@@ -42,8 +41,19 @@ export const getPatientById = async (req: Request, res: Response) => {
 };
 
 export const createPatient = async (req: Request, res: Response) => {
+    const {firstName, lastName, email, medicine, fileRef, address, city , state} = req.body
     try {
-        const patient = new Patient(req.body);
+        const patient = new Patient({
+            firstName,
+            lastName,
+            email,
+            medicine,
+            fileRef,
+            address,
+            city,
+            state,
+            file: req.file?.filename
+        });
         await patient.save();
         res.status(201).json(patient);
     } catch (err: any) {
@@ -68,12 +78,12 @@ export const checkFileAndSendMain = async (req: Request, res: Response) => {
                 price += el.Price
             }
         })
-        const {firstName, lastName, email , fileRef} = patientInfo
+        const {firstName, lastName, email, fileRef} = patientInfo
 
 
-        await sendMail(email, firstName, lastName, price , fileRef)
+        await sendMail(email, firstName, lastName, price, fileRef)
 
-        res.json({total: patientMedicine, price: price , receiver: patientInfo})
+        res.json({total: patientMedicine, price: price, receiver: patientInfo})
 
 
     } catch (err: any) {

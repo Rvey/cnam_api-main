@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 
 
-
-
 // export interface CnamDocument extends patientFile, mongoose.Document {
 //     createdAt: Date;
 //     updatedAt: Date;
@@ -22,7 +20,7 @@ export const patientSchema = new mongoose.Schema(
         phone: {
             type: Number,
         },
-        fileRef:{
+        fileRef: {
             type: Number,
         },
         address: {
@@ -34,9 +32,12 @@ export const patientSchema = new mongoose.Schema(
         state: {
             type: String,
         },
-        medicine:[{
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Cnam',
+        file: {
+            type: String
+        },
+        medicine: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Cnam',
         }],
 
     },
